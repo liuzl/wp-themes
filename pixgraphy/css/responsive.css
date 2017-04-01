@@ -48,7 +48,7 @@
 		background-attachment: scroll;
 	}
 	.four-column-post .post-container {
-		width: 33.33%;
+		width: 50%;
 	}
 	.widget-title {
 		font-size: 22px;
@@ -461,7 +461,7 @@
 	.two-column-post .post-container,
 	.three-column-post .post-container,
 	.four-column-post .post-container {
-		width: 100%;
+		width: 50%;
 	}
 	#main .sticky {
 		padding: 15px 15px 0;
