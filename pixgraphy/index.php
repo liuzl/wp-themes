@@ -57,7 +57,9 @@ get_sidebar();
 	if( $pixgraphy_stickies ) {
 		$pixgraphy_args = array( 'ignore_sticky_posts' => 1, 'post__not_in' => $pixgraphy_stickies, 'category__in' => $pixgraphy_settings['pixgraphy_categories'] );
 		query_posts( array_merge($wp_query->query, $pixgraphy_args) );
-	}
+	} else {
+        query_posts(array('tag' => 'hot'));
+    }
 	if( have_posts() ) {
 		while(have_posts() ) {
 			the_post();
