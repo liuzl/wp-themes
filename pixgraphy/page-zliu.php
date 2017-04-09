@@ -1,15 +1,9 @@
 <?php
 /**
- * The main template file.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @package Theme Freesia
- * @subpackage Pixgraphy
- * @since Pixgraphy 1.0
+ * Template Name: Custom Front Page - zliu
  */
 
-get_header();
+get_header('zliu');
 	$pixgraphy_settings = pixgraphy_get_theme_options();
 	if($pixgraphy_settings['pixgraphy_photography_layout'] != 'photography_layout'){
 	global $pixgraphy_content_layout;
@@ -53,24 +47,25 @@ get_sidebar();
 	<!-- post_masonry ============================================= -->
 <section id="post_masonry" class="<?php echo esc_attr($pixgraphy_settings['pixgraphy_column_post']);?>-column-post clearfix">
 	<?php
-	$pixgraphy_stickies = get_option('sticky_posts');
-	if( $pixgraphy_stickies ) {
-		$pixgraphy_args = array( 'ignore_sticky_posts' => 1, 'post__not_in' => $pixgraphy_stickies, 'category__in' => $pixgraphy_settings['pixgraphy_categories'] );
-		query_posts( array_merge($wp_query->query, $pixgraphy_args) );
+    $keys = array(
+        array('hot', 'hot description'),
+        array('new', 'new description'),
+    );
+    foreach ($keys as $item) { 
+        query_posts(array(
+            'tag' => $item[0],
+            'posts_per_page' => 4,
+            'offset' => 0,
+        ));
+        if( have_posts() ) {
+            while(have_posts() ) {
+                the_post();
+                get_template_part( 'content');
+            }
+        } 
     }
-   /* else {
-        query_posts(array('tag' => 'hot'));
-   } */
-	if( have_posts() ) {
-		while(have_posts() ) {
-			the_post();
-			get_template_part( 'content');
-		}
-    } 
-    
     ?>
 </section>
-<?php get_template_part( 'pagination', 'none' ); ?>
 <!-- end #post_masonry -->
 <?php }
 get_footer(); ?>
