@@ -23,12 +23,15 @@ if($pixgraphy_settings['pixgraphy_photography_layout'] != 'photography_layout'){
 						);
 					} ?>
 					<span class="author vcard"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php the_author(); ?>"><i class="fa fa-user"></i>
-					<?php the_author(); ?> </a></span> <span class="posted-on"><a title="<?php echo esc_attr( get_the_time() ); ?>" href="<?php the_permalink(); ?>"><i class="fa fa-calendar"></i>
+					<?php the_author(); ?> </a></span>
+					<!--
+					<span class="posted-on"><a title="<?php echo esc_attr( get_the_time() ); ?>" href="<?php the_permalink(); ?>"><i class="fa fa-calendar"></i>
 					<?php the_time( get_option( 'date_format' ) ); ?> </a></span>
 					<?php if ( comments_open() ) { ?>
 					<span class="comments"><i class="fa fa-comment"></i>
 					<?php comments_popup_link( __( 'No Comments', 'pixgraphy' ), __( '1 Comment', 'pixgraphy' ), __( '% Comments', 'pixgraphy' ), '', __( 'Comments Off', 'pixgraphy' ) ); ?> </span>
 					<?php } ?>
+					-->
 				</div> <!-- end .entry-meta -->
 				<?php } ?>
 			</header> <!-- end .entry-header -->
@@ -111,12 +114,15 @@ if($pixgraphy_settings['pixgraphy_photography_layout'] != 'photography_layout'){
 					if($entry_format_meta_blog == 'show-meta' ){?>
 					<div class="entry-meta">
 						<span class="author vcard"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>" title="<?php the_author(); ?>"><i class="fa fa-user"></i>
-						<?php the_author(); ?> </a></span> <span class="posted-on"><a title="<?php echo esc_attr( get_the_time() ); ?>" href="<?php the_permalink(); ?>"><i class="fa fa-calendar"></i>
+						<?php the_author(); ?> </a></span> 
+						<!--
+						<span class="posted-on"><a title="<?php echo esc_attr( get_the_time() ); ?>" href="<?php the_permalink(); ?>"><i class="fa fa-calendar"></i>
 						<?php the_time( get_option( 'date_format' ) ); ?> </a></span>
 						<?php if ( comments_open() ) { ?>
 						<span class="comments">
 						<?php comments_popup_link( __( '<i class="fa fa-comment"></i>', 'pixgraphy' ), __( '<i class="fa fa-comment"></i>', 'pixgraphy' ), __( '% <i class="fa fa-comment"></i>', 'pixgraphy' ), '', __( 'Comments Off', 'pixgraphy' ) ); ?> </span>
 						<?php } ?>
+						-->
 					</div> <!-- end .entry-meta -->
 				<?php } ?>
 

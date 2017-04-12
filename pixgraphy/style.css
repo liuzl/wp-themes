@@ -2038,6 +2038,10 @@ input.search-field {
 .border-column #post_masonry .post-container {
 	padding: 5px;
 }
+.post{
+	float: left;
+}
+
 .four-column-post .post-container {
 	width: 25%;
 }
@@ -2059,8 +2063,8 @@ input.search-field {
 	background-color: #ff3838;
 	content: " ";
 	display: block;
-	height: 1px;
-	margin: 10px 0px auto;
+	height: 0px;
+	margin: 0px 0px auto;
 	width: 50px;
 }
 .post-container .entry-title, 
@@ -2114,13 +2118,13 @@ input.search-field {
 }
 #post_masonry .has-post-thumbnail .entry-header {
 	background: rgba(0, 0, 0, 0) linear-gradient(to top, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0) 100%);
-	bottom: -50px;
+	bottom: 0px;
 	color: #fff;
 	display: block;
-	opacity: 0;
+	
 		-moz-opacity: 0;
 		filter:alpha(opacity=0);
-	padding: 10px 20px 0;
+	padding: 10px 5px 0;
 	position: absolute;
 	right: 0;
 	text-align: left;

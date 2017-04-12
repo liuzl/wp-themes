@@ -45,13 +45,19 @@ get_header('zliu');
 get_sidebar();
 }else{ ?>
 	<!-- post_masonry ============================================= -->
-<section id="post_masonry" class="<?php echo esc_attr($pixgraphy_settings['pixgraphy_column_post']);?>-column-post clearfix">
+
 	<?php
     $keys = array(
         array('hot', 'hot description'),
         array('new', 'new description'),
     );
     foreach ($keys as $item) { 
+    	?>
+
+    	<div class="page-header"><?php echo 'TAG Name = '.$item[0] ?></div>
+
+    	<section id="post_masonry" class="<?php echo esc_attr($pixgraphy_settings['pixgraphy_column_post']);?>-column-post clearfix">
+    	<?php
         query_posts(array(
             'tag' => $item[0],
             'posts_per_page' => 4,
@@ -63,9 +69,12 @@ get_sidebar();
                 get_template_part( 'content');
             }
         } 
+        ?>
+        </section>
+        <?php
     }
     ?>
-</section>
+
 <!-- end #post_masonry -->
 <?php }
 get_footer(); ?>
