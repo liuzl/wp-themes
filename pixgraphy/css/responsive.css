@@ -140,7 +140,7 @@
 	.container,
 	.boxed-layout #page,
 	.boxed-layout-small #page {
-		width: 460px;
+		width: 90%;
 	}
 	.boxed-layout .container,
 	.boxed-layout-small .container {
@@ -343,10 +343,10 @@
 		margin: 0px;
 	}
 	.page-header {
-		padding: 10px 20px;
+		padding: 0 0 5px 0;
 	}
 	#content {
-		padding-top: 50px;
+		padding-top: 20px;
 	}
 	/* ----- Column ----- */
 	.column {
@@ -423,7 +423,7 @@
 	.container,
 	.boxed-layout #page,
 	.boxed-layout-small #page {
-		width: 300px;
+		width: 90%;
 	}
 	.boxed-layout .container,
 	.boxed-layout-small .container {

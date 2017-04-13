@@ -54,7 +54,7 @@ get_sidebar();
     foreach ($keys as $item) { 
     	?>
 
-    	<div class="page-header"><?php echo 'TAG Name = '.$item[0] ?></div>
+    	<div class="page-header" style="padding: 5px 10px !important;"><?php echo 'TAG Name = '.$item[0] ?></div>
 
     	<section id="post_masonry" class="<?php echo esc_attr($pixgraphy_settings['pixgraphy_column_post']);?>-column-post clearfix">
     	<?php

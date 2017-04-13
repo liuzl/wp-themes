@@ -214,7 +214,7 @@ h6 {
 /* ----- #Text Elements  ----- */
 p {
 	padding: 0;
-	margin: 0 0 20px 0;
+	margin: 0 0 0 0;
 }
 
 b, strong { font-weight: bold; }
@@ -741,8 +741,8 @@ img {
 img.alignleft,
 img.alignright,
 img.aligncenter {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 figure {
 	margin: 0;
