@@ -3,8 +3,7 @@
  * Template Name: Custom Front Page - zliu
  */
 
-//get_header('zliu');
-get_header();
+get_header('zliu');
 	$pixgraphy_settings = pixgraphy_get_theme_options();
 	if($pixgraphy_settings['pixgraphy_photography_layout'] != 'photography_layout'){
 	global $pixgraphy_content_layout;

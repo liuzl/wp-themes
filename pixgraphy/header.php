@@ -17,49 +17,10 @@ $pixgraphy_settings = pixgraphy_get_theme_options(); ?>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <?php wp_head(); ?>
 </head>
-<body class="home blog border-column photography">
+<body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 <!-- Masthead ============================================= -->
 <header id="masthead" class="site-header">
-<div id="sticky_header">
-					<div class="container clearfix" style="margin-left: 0;">
-						<div class="menu-toggle">
-							<div style="width: 32px;">			
-								<div class="line-one"></div>
-					  			<div class="line-two"></div>
-					  			<div class="line-three"></div>
-				  			</div>
-					  	</div>
-					  	<!-- end .menu-toggle -->	
-						<!-- Main Nav ============================================= -->
-						<?php
-							if (has_nav_menu('primary')) { ?>
-						<?php $args = array(
-							'theme_location' => 'primary',
-							'container'      => '',
-							'items_wrap'     => '<ul class="menu">%3$s</ul>',
-							); ?>
-						<nav id="site-navigation" class="main-navigation clearfix">
-							<?php wp_nav_menu($args);//extract the content from apperance-> nav menu ?>
-						</nav> <!-- end #site-navigation -->
-						<?php } else {// extract the content from page menu only ?>
-						<nav id="site-navigation" class="main-navigation clearfix">
-							<?php	wp_page_menu(array('menu_class' => 'menu')); ?>
-						</nav> <!-- end #site-navigation -->
-						<?php }
-						$search_form = $pixgraphy_settings['pixgraphy_search_custom_header'];
-						if (1 != $search_form) { ?>
-							<div id="search-toggle" class="header-search"></div>
-							<div id="search-box" class="clearfix">
-								<?php get_search_form();?>
-							</div>  <!-- end #search-box -->
-						<?php } 
-
-			echo '</div> <!-- end .container -->
-			</div> <!-- end #sticky_header -->';
-	?>
-
-
 		<div class="top-header" <?php if( get_header_image() != '' ){ ?>style="background-image:url('<?php echo get_header_image(); ?>');" <?php } ?>>
 			<div class="container clearfix">
 				<?php
@@ -98,13 +59,61 @@ $pixgraphy_settings = pixgraphy_get_theme_options(); ?>
 			}
 		} ?>
 		<!-- Main Header============================================= -->
-				
+				<div id="sticky_header">
+					<div class="container clearfix">
+						<div class="menu-toggle">			
+							<div class="line-one"></div>
+				  			<div class="line-two"></div>
+				  			<div class="line-three"></div>
+					  	</div>
+					  	<!-- end .menu-toggle -->	
+						<!-- Main Nav ============================================= -->
+						<?php
+							if (has_nav_menu('primary')) { ?>
+						<?php $args = array(
+							'theme_location' => 'primary',
+							'container'      => '',
+							'items_wrap'     => '<ul class="menu">%3$s</ul>',
+							); ?>
+						<nav id="site-navigation" class="main-navigation clearfix">
+							<?php wp_nav_menu($args);//extract the content from apperance-> nav menu ?>
+						</nav> <!-- end #site-navigation -->
+						<?php } else {// extract the content from page menu only ?>
+						<nav id="site-navigation" class="main-navigation clearfix">
+							<?php	wp_page_menu(array('menu_class' => 'menu')); ?>
+						</nav> <!-- end #site-navigation -->
+						<?php }
+						$search_form = $pixgraphy_settings['pixgraphy_search_custom_header'];
+						if (1 != $search_form) { ?>
+							<div id="search-toggle" class="header-search"></div>
+							<div id="search-box" class="clearfix">
+								<?php get_search_form();?>
+							</div>  <!-- end #search-box -->
+						<?php } 
+
+			echo '</div> <!-- end .container -->
+			</div> <!-- end #sticky_header -->';
+	?>
 </header> <!-- end #masthead -->
 <!-- Main Page Start ============================================= -->
 <div id="content">
-
+<?php if($pixgraphy_settings['pixgraphy_photography_layout'] == 'photography_layout' && !is_page() && !is_single()){
+	if( is_404()  || is_search() || is_archive()):
+		if($pixgraphy_settings['pixgraphy_photography_layout'] == 'photography_layout'){
+			if(class_exists('WooCommerce') && (is_shop() || is_product_category())){ ?>
+			<div class="container clearfix">
+			<?php }else{
+				// silence is golden
+			}
+		}else{ ?>
+	 	<div class="container clearfix">
+		<?php }
+	else: ?> 		
 	<div id="main">
-<?php 
+	<?php endif;
+}else{ ?>
+<div class="container clearfix">
+<?php }
 if(is_home() ){
 // silence is golden;
 }else{
@@ -114,6 +123,12 @@ if(is_home() ){
 		<?php }
 	}else{ 
 	$custom_page_title = apply_filters( 'pixgraphy_filter_title', '' );?>
+	<div class="page-header">
+		<h1 class="page-title"><?php echo esc_html($custom_page_title); ?></h1>
+		<!-- .page-title -->
+		<?php pixgraphy_breadcrumb(); ?>
+		<!-- .breadcrumb -->
+	</div>
 	<!-- .page-header -->
 	<?php }
 } ?>
