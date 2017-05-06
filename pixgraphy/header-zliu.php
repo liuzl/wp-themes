@@ -44,7 +44,21 @@ $pixgraphy_settings = pixgraphy_get_theme_options(); ?>
 						</nav> <!-- end #site-navigation -->
 						<?php } else {// extract the content from page menu only ?>
 						<nav id="site-navigation" class="main-navigation clearfix">
-							<?php	wp_page_menu(array('menu_class' => 'menu')); ?>
+                            <?php	//wp_page_menu(array('menu_class' => 'menu'));
+                        //2017.5.6 zliu
+                        //
+                        global $user_login;
+                        get_currentuserinfo();
+                        echo '<ul class="menu">';
+                        echo '<li class="page_item page-item-1 current_page_item"><a href="/">home</a></li>';
+                        if ($user_login) {
+                            echo '<li class="page_item page-item-2"><a href="/profile">profile</a></li>';
+                            echo '<li class="page_item page-item-3"><a href="' . wp_logout_url(home_url()) . '">logout</a></li>';
+                        } else {
+                            echo '<li class="page_item page-item-4"><a href="/login">login</a></li>';
+                        }
+                        echo '</ul>';
+ ?>
 						</nav> <!-- end #site-navigation -->
 						<?php }
 						$search_form = $pixgraphy_settings['pixgraphy_search_custom_header'];
