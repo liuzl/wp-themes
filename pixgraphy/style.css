@@ -955,7 +955,6 @@ img#wpstats {
 		-webkit-transition: all 500ms ease-out 0s;
 	transition: all 500ms ease-out 0s;
 	position: relative;
-	width: 40%;
   	z-index: 999;
 }
 .is-sticky #sticky_header {
