@@ -48,13 +48,14 @@ get_sidebar();
 
 	<?php
     $keys = array(
-        array('hot', 'hot description'),
-        array('new', 'new description'),
+        array('new', 'NEW'),
+        array('hot', 'HOT'),
+        array('popular', 'MOST POPULAR'),
     );
     foreach ($keys as $item) { 
     	?>
 
-    	<div class="page-header" style="padding: 5px 10px !important;"><?php echo 'TAG Name = '.$item[0] ?></div>
+    	<div class="page-header" style="padding: 5px 10px !important;"><?php echo $item[1] ?></div>
 
     	<section id="post_masonry" class="<?php echo esc_attr($pixgraphy_settings['pixgraphy_column_post']);?>-column-post clearfix">
     	<?php
