@@ -48,9 +48,9 @@ get_sidebar();
 
 	<?php
     $keys = array(
-        array('new', 'NEW'),
-        array('hot', 'HOT'),
-        array('popular', 'MOST POPULAR'),
+        array('fresh', 'Fresh'),
+        array('hot', 'Hot'),
+        array('vip', 'Vip'),
     );
     foreach ($keys as $item) { 
     	?>
